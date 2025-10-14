@@ -84,7 +84,7 @@ label {
 input[type="text"], input[type="email"], input[type="tel"], input[type="date"], select {
     padding: 12px 15px;
     border: 1px solid #dcdfe6;
-    border-radius: 8px;
+    border-radius: var(--radius);
     background: #fdfdfd;
     transition: box-shadow .2s ease, border-color .2s ease;
     outline: none;
@@ -111,7 +111,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, in
     cursor: pointer;
     padding: 10px 15px;
     border: 1px solid #dcdfe6;
-    border-radius: 8px;
+    border-radius: var(--radius);
     transition: all .2s ease;
 }
 
@@ -136,7 +136,7 @@ input[type="submit"] {
     background: linear-gradient(45deg, var(--accent), #3a7bd5);
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: var(--radius);
     cursor: pointer;
     font-weight: 600;
     font-size: 16px;
