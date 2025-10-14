@@ -1,3 +1,4 @@
+/* Theme variables */
 :root {
     --bg: #f0f4f8;
     --card: #ffffff;
@@ -5,33 +6,54 @@
     --muted: #8492a6;
     --success: #28a745;
     --danger: #dc3545;
-    --glass: rgba(255,255,255,0.7);
+    --glass: rgba(255, 255, 255, 0.7);
     --radius: 12px;
-    --shadow: 0 10px 25px rgba(0,0,0,0.08);
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     --mono: 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    /* soft blue for section title borders */
     --legend-border: #cfe3ff;
 }
 
+/* Page layout */
 html, body {
-    height:100%;
-    margin:0;
-    background:
-        linear-gradient(rgba(15,30,50,0.48), rgba(15,30,50,0.48)),
-        radial-gradient(circle at 50% 25%, rgba(255,255,255,0.08), rgba(0,0,0,0.25)),
-        url('hotel.jpg') center/cover no-repeat fixed;
+    height: 100%;
+    margin: 0;
+    /* Base photo only; overlays provided via pseudo-elements */
+    background: url('hotel.jpg') center/cover no-repeat fixed;
     font-family: var(--mono);
-    color:#2c3e50;
-    -webkit-font-smoothing:antialiased;
-    background-blend-mode: normal, overlay, normal;
+    color: #2c3e50;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Flatten overlay (Option 3) */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(rgba(18,32,54,0.55), rgba(18,32,54,0.55));
+    mix-blend-mode: normal;
+    z-index: -1;
+}
+
+/* Optional subtle noise to break banding */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIW2NgYGD4DwABAgEAffy7WQAAAABJRU5ErkJggg==');
+    opacity: 0.025; /* very light */
+    mix-blend-mode: normal;
+    z-index: -1;
 }
 
 h1 {
-    text-align:center;
-    font-weight:700;
-    margin:32px auto 16px;
-    color:var(--accent);
-    font-size:32px;
-    letter-spacing:.5px;
+    text-align: center;
+    font-weight: 700;
+    margin: 32px auto 12px;
+    color: var(--accent);
+    font-size: 28px;
 }
 
 form {
@@ -42,6 +64,7 @@ form {
     box-sizing: border-box;
 }
 
+/* Panel that wraps all sections */
 .form-panel {
     background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(222,238,255,0.92));
     border: 1px solid rgba(180,205,235,0.7);
@@ -52,19 +75,24 @@ form {
     position: relative;
 }
 
+/* Add subtle inner divider spacing */
 .form-panel > fieldset + .section-title { margin-top: 10px; }
 .form-panel .section-title { display:block; }
 
+/* Prevent background see-through for text contrast inside panel */
 .form-panel fieldset { box-shadow: none; background: transparent; }
 .form-panel fieldset + fieldset { margin-top: 32px; }
 
+/* Card container for the form */
 fieldset {
-    background: var(--card);
-    border:1px solid #e0e6ed;
-    padding:24px 22px 26px;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    margin:24px 0;
+    /* Flattened (Option 1) */
+    background: transparent;
+    backdrop-filter: none;
+    border: none;
+    padding: 18px 0 4px;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0 0 16px;
 }
 
 legend {
@@ -78,6 +106,7 @@ legend {
     background: rgba(255,255,255,0.9);
 }
 
+/* Two-column layout for the main lists */
 form > ol {
     list-style: none;
     padding: 0;
@@ -87,6 +116,7 @@ form > ol {
     gap: 16px 24px;
 }
 
+/* Individual form item */
 ol li {
     display: flex;
     flex-direction: column;
@@ -95,11 +125,13 @@ ol li {
 label {
     font-size: 14px;
     color: var(--muted);
+    /* move label slightly down and keep it just above input */
     margin-top: 2px;
     margin-bottom: 6px;
     font-weight: 500;
 }
 
+/* remove extra gap caused by <br/> after labels in markup */
 label + br { display: none; }
 
 input[type="text"], input[type="email"], input[type="tel"], input[type="date"], select {
@@ -120,6 +152,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, in
     box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
 }
 
+/* Radio group custom styling */
 .radio-group {
     display: flex;
     gap: 10px;
@@ -151,18 +184,21 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, in
     box-shadow: 0 6px 14px -2px rgba(74,144,226,0.45);
 }
 
+/* Hover / focus states for breakfast options */
 .radio-group label:hover { border-color: var(--accent); }
 .radio-group input[type="radio"]:focus + label { box-shadow: 0 0 0 3px rgba(74,144,226,0.35); }
 
+/* Breakfast label alignment */
 .breakfast-label {
     font-size: 14px;
     color: var(--muted);
     font-weight: 500;
     display: inline-block;
     margin-top: 2px;
-    margin-bottom: 8px;
+    margin-bottom: 8px; /* slightly larger gap before radio buttons */
 }
 
+/* Buttons */
 input[type="submit"] {
     appearance: none;
     -webkit-appearance: none;
@@ -186,12 +222,14 @@ input[type="submit"]:hover {
     box-shadow: 0 12px 30px rgba(58, 123, 213, 0.3);
 }
 
+/* Form helper text and paragraph */
 p {
     color: var(--muted);
     margin: 12px 0 18px 0;
     text-align: center;
 }
 
+/* Section title style to match legend (for Reservation room details) */
 .section-title {
     display: inline-block;
     font-weight: 700;
@@ -205,6 +243,7 @@ p {
     margin: 8px 0 12px 0;
 }
 
+/* Responsive tweaks */
 @media (max-width: 800px) {
     form > ol {
         grid-template-columns: 1fr;
@@ -216,11 +255,13 @@ p {
     h1 { font-size: 24px; }
 }
 
+/* Accessibility focus ring */
 :focus-visible {
     outline: 3px solid rgba(74, 144, 226, 0.3);
     outline-offset: 2px;
 }
 
+/* Small polish for select elements */
 select {
     appearance: none;
     background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M5%208l5%205%205-5z%22%20fill%3D%22%238492A6%22/%3E%3C/svg%3E');
