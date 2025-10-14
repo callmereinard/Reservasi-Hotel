@@ -81,6 +81,8 @@ form > ol {
 ol li {
     display: flex;
     flex-direction: column;
+    /* don't force children to stretch to full column width */
+    align-items: flex-start;
 }
 
 label {
@@ -99,6 +101,10 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="date"], 
     outline: none;
     font-size: 15px;
     color: #333;
+    /* keep inputs visually compact on wide screens */
+    width: 100%;
+    max-width: 520px;
+    box-sizing: border-box;
 }
 
 input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, input[type="date"]:focus, select:focus {
