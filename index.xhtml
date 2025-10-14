@@ -19,9 +19,12 @@
 				<input size="40" name="name" id="name" type="text"/>
 			</li>
 			<li>
-				<label for="gender">Gender</label><br/>
-				<input size="40" name="gender" type="text" id="gender"/>
-			</li>
+			<label for="gender">Gender</label><br/>
+			<select name="gender" id="gender">
+				<option value="male">Male</option>
+				<option value="female">Female</option>
+			</select>
+		</li>
 			<li>
 				<label for="emailaddress">Email Address</label><br/>
 				<input size="40" type="email" name="emailaddress" id="emailaddress"/>
@@ -62,10 +65,12 @@
 		</li>
 		<li>
 			<span>Breakfast</span><br/>
-			<input checked="checked" value="With Breakfast" name="breakfast" type="radio" id="breakfast_with"/>
-			<label for="breakfast_with">With Breakfast</label>
-			<input value="Without Breakfast" id="breakfast_without" type="radio" name="breakfast"/>
-			<label for="breakfast_without">Without Breakfast</label>
+			<div class="radio-group">
+				<input checked="checked" value="With Breakfast" name="breakfast" type="radio" id="breakfast_with"/>
+				<label for="breakfast_with">With Breakfast</label>
+				<input value="Without Breakfast" id="breakfast_without" type="radio" name="breakfast"/>
+				<label for="breakfast_without">Without Breakfast</label>
+			</div>
 		</li>
 	</ol>
 
