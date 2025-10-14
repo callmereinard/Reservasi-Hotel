@@ -18,7 +18,10 @@
 html, body {
     height: 100%;
     margin: 0;
-    background: linear-gradient(180deg, #e6e9f0 0%, var(--bg) 100%);
+    /* Background image with soft dark-to-light overlay for readability */
+    background:
+        linear-gradient(rgba(15,30,50,0.55), rgba(15,30,50,0.35)),
+        url('hotel.jpg') center/cover no-repeat fixed;
     font-family: var(--mono);
     color: #2c3e50;
     -webkit-font-smoothing: antialiased;
@@ -42,7 +45,9 @@ form {
 
 /* Card container for the form */
 fieldset {
-    background: var(--card);
+    /* Slight translucency to let background subtly show through */
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(4px);
     border: 1px solid #e0e6ed;
     padding: 25px;
     border-radius: var(--radius);
@@ -58,7 +63,7 @@ legend {
     padding: 4px 10px;
     border: 2px solid var(--legend-border);
     border-radius: 10px;
-    background: var(--card);
+    background: rgba(255,255,255,0.9);
 }
 
 /* Two-column layout for the main lists */
@@ -176,7 +181,7 @@ p {
     padding: 4px 10px;
     border: 2px solid var(--legend-border);
     border-radius: 10px;
-    background: var(--card);
+    background: rgba(255,255,255,0.9);
     text-align: left;
     margin: 8px 0 12px 0;
 }
