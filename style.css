@@ -26,18 +26,12 @@ html, body {
 }
 
 h1 {
-    text-align: center;
-    font-weight: 700;
-    margin: 32px auto 24px;
-    color: var(--accent);
-    font-size: 28px;
-    display: inline-block;
-    background: #ffffffcc;
-    padding: 10px 26px;
-    border: 2px solid var(--legend-border);
-    border-radius: 18px;
-    box-shadow: 0 8px 24px -10px rgba(30,60,110,0.25);
-    backdrop-filter: blur(4px);
+    text-align:center;
+    font-weight:700;
+    margin:32px auto 16px;
+    color:var(--accent);
+    font-size:32px;
+    letter-spacing:.5px;
 }
 
 form {
@@ -65,13 +59,12 @@ form {
 .form-panel fieldset + fieldset { margin-top: 32px; }
 
 fieldset {
-    background: transparent;
-    backdrop-filter: none;
-    border: none;
-    padding: 18px 0 4px;
-    border-radius: 0;
-    box-shadow: none;
-    margin: 0 0 16px;
+    background: var(--card);
+    border:1px solid #e0e6ed;
+    padding:24px 22px 26px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin:24px 0;
 }
 
 legend {
