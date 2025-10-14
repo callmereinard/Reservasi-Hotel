@@ -43,6 +43,25 @@ form {
     box-sizing: border-box;
 }
 
+/* Panel that wraps all sections */
+.form-panel {
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(222,238,255,0.92));
+    border: 1px solid rgba(180,205,235,0.7);
+    border-radius: 20px;
+    box-shadow: 0 18px 40px -12px rgba(15,30,60,0.25);
+    padding: 30px 34px 40px;
+    backdrop-filter: blur(6px);
+    position: relative;
+}
+
+/* Add subtle inner divider spacing */
+.form-panel > fieldset + .section-title { margin-top: 10px; }
+.form-panel .section-title { display:block; }
+
+/* Prevent background see-through for text contrast inside panel */
+.form-panel fieldset { box-shadow: none; background: rgba(255,255,255,0.82); }
+.form-panel fieldset + fieldset { margin-top: 32px; }
+
 /* Card container for the form */
 fieldset {
     /* Slight translucency to let background subtly show through */
