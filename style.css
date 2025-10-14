@@ -20,9 +20,17 @@ html, body {
     font-family: var(--mono);
     color: #2c3e50;
     -webkit-font-smoothing: antialiased;
+    /* layout as column so header and form stack vertically */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* ensure there's some breathing room on small screens */
+    padding: 24px;
+    box-sizing: border-box;
+    min-height: 100vh;
+    /* allow scrolling when content is taller than viewport */
+    overflow: auto;
 }
 
 h1 {
@@ -35,7 +43,8 @@ h1 {
 
 form {
     max-width: 960px;
-    width: 100%;
+    /* use a responsive width so the form doesn't stretch full-width on small screens */
+    width: min(960px, 96%);
     margin: 24px auto;
     padding: 28px;
     box-sizing: border-box;
