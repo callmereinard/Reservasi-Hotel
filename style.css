@@ -18,13 +18,15 @@
 html, body {
     height: 100%;
     margin: 0;
-    /* Background image with soft dark-to-light overlay for readability */
+    /* More even overlay (removes strong band / boundary). Slight radial add for subtle focus. */
     background:
-        linear-gradient(rgba(15,30,50,0.55), rgba(15,30,50,0.35)),
+        linear-gradient(rgba(15,30,50,0.48), rgba(15,30,50,0.48)),
+        radial-gradient(circle at 50% 25%, rgba(255,255,255,0.08), rgba(0,0,0,0.25)),
         url('hotel.jpg') center/cover no-repeat fixed;
     font-family: var(--mono);
     color: #2c3e50;
     -webkit-font-smoothing: antialiased;
+    background-blend-mode: normal, overlay, normal;
 }
 
 h1 {
@@ -143,10 +145,13 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, in
     display: flex;
     align-items: center;
     cursor: pointer;
-    padding: 10px 15px;
-    border: 1px solid #dcdfe6;
+    padding: 10px 18px;
+    border: 2px solid #c2c9d3;
     border-radius: var(--radius);
     transition: all .2s ease;
+    font-weight: 600;
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(2px);
 }
 
 .radio-group input[type="radio"] {
@@ -154,11 +159,15 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, in
 }
 
 .radio-group input[type="radio"]:checked + label {
-    background-color: var(--accent);
-    color: white;
+    background: linear-gradient(135deg, var(--accent), #3a7bd5);
+    color: #fff;
     border-color: var(--accent);
-    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.2);
+    box-shadow: 0 6px 14px -2px rgba(74,144,226,0.45);
 }
+
+/* Hover / focus states for breakfast options */
+.radio-group label:hover { border-color: var(--accent); }
+.radio-group input[type="radio"]:focus + label { box-shadow: 0 0 0 3px rgba(74,144,226,0.35); }
 
 /* Buttons */
 input[type="submit"] {
