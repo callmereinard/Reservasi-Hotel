@@ -1,1 +1,142 @@
+/* Theme variables */
+:root{
+	--bg: #f5f7fb;
+	--card: #ffffff;
+	--accent: #0066cc;
+	--muted: #6b7280;
+	--success: #10b981;
+	--danger: #ef4444;
+	--glass: rgba(255,255,255,0.6);
+	--radius: 12px;
+	--shadow: 0 6px 18px rgba(20,30,60,0.08);
+	--mono: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Page layout */
+html,body{
+	height:100%;
+	margin:0;
+	background: linear-gradient(180deg, #edf2fb 0%, var(--bg) 100%);
+	font-family: var(--mono);
+	color:#0f172a;
+	-webkit-font-smoothing:antialiased;
+}
+
+h1{
+	text-align:center;
+	font-weight:600;
+	margin:28px 12px 8px;
+	color:var(--accent);
+}
+
+form{
+	max-width:920px;
+	margin:18px auto 60px;
+	padding:22px;
+	box-sizing:border-box;
+}
+
+/* Card container for the form */
+fieldset{
+	background:var(--card);
+	border:none;
+	padding:20px;
+	border-radius:var(--radius);
+	box-shadow:var(--shadow);
+	margin:18px 0;
+}
+
+legend{
+	font-weight:700;
+	color:var(--accent);
+	padding:0 8px;
+}
+
+/* Two-column layout for the main lists */
+form > ol{
+	list-style:none;
+	padding:0;
+	margin:0;
+	display:grid;
+	grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+	gap:14px 22px;
+}
+
+/* Individual form item */
+ol li{
+	display:flex;
+	flex-direction:column;
+}
+
+label{
+	font-size:13px;
+	color:var(--muted);
+	margin-bottom:6px;
+}
+
+input[type="text"], select{
+	padding:10px 12px;
+	border:1px solid #e6e9ef;
+	border-radius:10px;
+	background:linear-gradient(180deg, var(--glass), var(--card));
+	transition:box-shadow .18s ease, border-color .12s ease, transform .06s ease;
+	outline:none;
+	font-size:14px;
+}
+
+input[type="text"]:focus, select:focus{
+	border-color:var(--accent);
+	box-shadow:0 6px 18px rgba(0,102,204,0.12);
+	transform:translateY(-1px);
+}
+
+/* Radio group inline style */
+input[type="radio"]{
+	margin-right:8px;
+}
+
+/* Buttons */
+input[type="submit"]{
+	appearance:none;
+	-webkit-appearance:none;
+	display:inline-block;
+	padding:12px 22px;
+	background:var(--accent);
+	color:white;
+	border:none;
+	border-radius:10px;
+	cursor:pointer;
+	font-weight:600;
+	box-shadow:0 8px 20px rgba(0,102,204,0.15);
+	transition:transform .12s ease, box-shadow .12s ease;
+}
+
+input[type="submit"]:hover{transform:translateY(-3px); box-shadow:0 12px 30px rgba(0,102,204,0.18)}
+
+/* Form helper text and paragraph */
+p{
+	color:var(--muted);
+	margin:8px 0 14px 0;
+}
+
+/* Make fieldset inside the form look lighter */
+fieldset + p{margin-top:6px}
+
+/* Responsive tweaks */
+@media (max-width:640px){
+	form{padding:14px}
+	input[type="text"], select{font-size:15px}
+	h1{font-size:20px}
+}
+
+/* Accessibility focus ring */
+:focus{outline:2px solid rgba(0,102,204,0.12); outline-offset:2px}
+
+/* Small polish for select elements */
+select{appearance:none; background-image:linear-gradient(45deg,transparent 50%, #999 50%), linear-gradient(135deg,#999 50%,transparent 50%); background-position:calc(100% - 18px) calc(1em + 2px), calc(100% - 13px) calc(1em + 2px); background-size:6px 6px,6px 6px; background-repeat:no-repeat; padding-right:36px}
+
+/* Subtle input icon space (optional future use) */
+.with-icon{position:relative}
+.with-icon input{padding-left:40px}
+
 
