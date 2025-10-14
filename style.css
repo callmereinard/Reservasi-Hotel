@@ -10,6 +10,8 @@
     --radius: 12px;
     --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     --mono: 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    /* soft blue for section title borders */
+    --legend-border: #cfe3ff;
 }
 
 /* Page layout */
@@ -49,10 +51,14 @@ fieldset {
 }
 
 legend {
+    display: inline-block;
     font-weight: 700;
     color: var(--accent);
-    padding: 0 10px;
     font-size: 18px;
+    padding: 4px 10px;
+    border: 2px solid var(--legend-border);
+    border-radius: 10px;
+    background: var(--card);
 }
 
 /* Two-column layout for the main lists */
@@ -74,9 +80,14 @@ ol li {
 label {
     font-size: 14px;
     color: var(--muted);
-    margin-bottom: 8px;
+    /* move label slightly down and keep it just above input */
+    margin-top: 2px;
+    margin-bottom: 6px;
     font-weight: 500;
 }
+
+/* remove extra gap caused by <br/> after labels in markup */
+label + br { display: none; }
 
 input[type="text"], input[type="email"], input[type="tel"], input[type="date"], select {
     padding: 12px 14px;
@@ -154,6 +165,20 @@ p {
     color: var(--muted);
     margin: 12px 0 18px 0;
     text-align: center;
+}
+
+/* Section title style to match legend (for Reservation room details) */
+.section-title {
+    display: inline-block;
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 18px;
+    padding: 4px 10px;
+    border: 2px solid var(--legend-border);
+    border-radius: 10px;
+    background: var(--card);
+    text-align: left;
+    margin: 8px 0 12px 0;
 }
 
 /* Responsive tweaks */
