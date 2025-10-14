@@ -18,34 +18,15 @@
 html, body {
     height: 100%;
     margin: 0;
-    /* Base photo only; overlays provided via pseudo-elements */
-    background: url('hotel.jpg') center/cover no-repeat fixed;
+    /* More even overlay (removes strong band / boundary). Slight radial add for subtle focus. */
+    background:
+        linear-gradient(rgba(15,30,50,0.48), rgba(15,30,50,0.48)),
+        radial-gradient(circle at 50% 25%, rgba(255,255,255,0.08), rgba(0,0,0,0.25)),
+        url('hotel.jpg') center/cover no-repeat fixed;
     font-family: var(--mono);
     color: #2c3e50;
     -webkit-font-smoothing: antialiased;
-}
-
-/* Flatten overlay (Option 3) */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    background: linear-gradient(rgba(18,32,54,0.55), rgba(18,32,54,0.55));
-    mix-blend-mode: normal;
-    z-index: -1;
-}
-
-/* Optional subtle noise to break banding */
-body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIW2NgYGD4DwABAgEAffy7WQAAAABJRU5ErkJggg==');
-    opacity: 0.025; /* very light */
-    mix-blend-mode: normal;
-    z-index: -1;
+    background-blend-mode: normal, overlay, normal;
 }
 
 h1 {
@@ -80,19 +61,19 @@ form {
 .form-panel .section-title { display:block; }
 
 /* Prevent background see-through for text contrast inside panel */
-.form-panel fieldset { box-shadow: none; background: transparent; }
+.form-panel fieldset { box-shadow: none; background: rgba(255,255,255,0.82); }
 .form-panel fieldset + fieldset { margin-top: 32px; }
 
 /* Card container for the form */
 fieldset {
-    /* Flattened (Option 1) */
-    background: transparent;
-    backdrop-filter: none;
-    border: none;
-    padding: 18px 0 4px;
-    border-radius: 0;
-    box-shadow: none;
-    margin: 0 0 16px;
+    /* Slight translucency to let background subtly show through */
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(4px);
+    border: 1px solid #e0e6ed;
+    padding: 25px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin: 24px 0;
 }
 
 legend {
@@ -270,5 +251,3 @@ select {
     background-size: 12px;
     padding-right: 40px;
 }
-
-
